@@ -29,21 +29,7 @@ npm audit fix
 
 5. Change API url in `.env`.
 
-## Setup for React-Native app
 
-1. Go to the [React Native environment setup](https://reactnative.dev/docs/environment-setup), then select `React Native CLI Quickstart` tab.  
-
-2. Install dependencies
-
-```bash
-cd mobile-app
-yarn install
-```
-
-  - 2.1 Only for mac users
-```bash
-cd ios && pod install && cd ../
-```
 
 3. Copy `.env.example` as `.env`.
 
@@ -77,10 +63,9 @@ cd api
 2. Run the FastAPI Server using uvicorn
 
 ```bash
-uvicorn main:app --reload --host 0.0.0.0
+uvicorn main:app --reload --host 127.0.0.1 --port 8000
 ```
-
-3. Your API is now running at `0.0.0.0:8000`
+3. Your API is now running at `127.0.0.1:8000`
 
 ### Using FastAPI & TF Serve
 
