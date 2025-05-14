@@ -1,22 +1,18 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Avatar from "@material-ui/core/Avatar";
 import Container from "@material-ui/core/Container";
-import React from "react";
+import Toolbar from "@material-ui/core/Toolbar";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import { Paper, CardActionArea, CardMedia, Grid, TableContainer, Table, TableBody, TableHead, TableRow, TableCell, Button, CircularProgress } from "@material-ui/core";
-import cblogo from "./cblogo.PNG";
 import image from "./bg.png";
 import { DropzoneArea } from 'material-ui-dropzone';
 import { common } from '@material-ui/core/colors';
 import Clear from '@material-ui/icons/Clear';
-
-
-
+import axios from "axios";
 
 const ColorButton = withStyles((theme) => ({
   root: {
@@ -27,7 +23,6 @@ const ColorButton = withStyles((theme) => ({
     },
   },
 }))(Button);
-const axios = require("axios").default;
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -143,6 +138,7 @@ const useStyles = makeStyles((theme) => ({
     color: '#be6a77 !important',
   }
 }));
+
 export const ImageUpload = () => {
   const classes = useStyles();
   const [selectedFile, setSelectedFile] = useState();
@@ -190,6 +186,7 @@ export const ImageUpload = () => {
     }
     setIsloading(true);
     sendFile();
+    // eslint-disable-next-line
   }, [preview]);
 
   const onSelectFile = (files) => {
@@ -211,13 +208,13 @@ export const ImageUpload = () => {
   return (
     <React.Fragment>
       <AppBar position="static" className={classes.appbar}>
-        <Toolbar>
+        {/* <Toolbar>
           <Typography className={classes.title} variant="h6" noWrap>
             CodeBasics: Potato Disease Classification
           </Typography>
           <div className={classes.grow} />
           <Avatar src={cblogo}></Avatar>
-        </Toolbar>
+        </Toolbar> */}
       </AppBar>
       <Container maxWidth={false} className={classes.mainContainer} disableGutters={true}>
         <Grid
@@ -234,7 +231,7 @@ export const ImageUpload = () => {
                 <CardMedia
                   className={classes.media}
                   image={preview}
-                  component="image"
+                  component="img"
                   title="Contemplative Reptile"
                 />
               </CardActionArea>
